@@ -6,7 +6,7 @@ export async function deployAll(client) {
 
     let permissions = [];
 
-    const commandFiles = readdirSync('./commands').filter(f => f.endsWith('.mjs'));
+    const commandFiles = readdirSync('./commands').filter(f => f.endsWith('.js'));
     for (const file of commandFiles) {
         const command = require(`./commands/${file}`);
         if (command.isCommand ?? true) {

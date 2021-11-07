@@ -20,7 +20,7 @@ keyv.on('error', err => {
 let currAmount = 0;
 let currStr = '';
 
-const eventFiles = readdirSync('./events').filter(f => f.endsWith('.mjs'));
+const eventFiles = readdirSync('./events').filter(f => f.endsWith('.js'));
 for (const file of eventFiles) {
     const event = require(`./events/${file}`);
     currStr += `\n${chalk[event.once && 'red' || 'green'](event.once && 'once' || 'on')} ${event.name}`;
@@ -32,7 +32,7 @@ currStr = '';
 
 client.db = keyv;
 client.commands = new Collection();
-const commandFiles = readdirSync('./commands').filter(f => f.endsWith('.mjs'));
+const commandFiles = readdirSync('./commands').filter(f => f.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     currStr += `\n${command.name}`;
